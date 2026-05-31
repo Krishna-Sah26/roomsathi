@@ -17,7 +17,8 @@ const allowedOrigins = new Set(
   [
     process.env.FRONTEND_URL,
     process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : null,
-    "https://roomsathi-blush.vercel.app/",
+    "https://roomsathi-np.vercel.app",
+    "https://roomsathi-blush.vercel.app",
     "http://localhost:5173",
   ].filter(Boolean),
 )
