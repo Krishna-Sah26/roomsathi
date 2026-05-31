@@ -22,6 +22,12 @@ app.use("/api/users", userRoutes)
 app.use("/api/owners", ownerRoutes)
 app.use("/api/explore", exploreRoutes)
 
+app.use("/auth", authRoutes)
+app.use("/rooms", roomRoutes)
+app.use("/users", userRoutes)
+app.use("/owners", ownerRoutes)
+app.use("/explore", exploreRoutes)
+
 app.get("/", (req, res) => {
   res.send("RoomSathi API Running")
 })
