@@ -1,14 +1,7 @@
 import axios from "axios";
 
-const baseURL = (
-  import.meta.env.VITE_API_URL ||
-  (import.meta.env.DEV
-    ? "http://localhost:5000"
-    : "https://roomsathi-k4gr.onrender.com")
-).replace(/\/$/, "").replace(/\/api$/, "");
-
 const API = axios.create({
-  baseURL,
+  baseURL: "https://roomsathi-k4gr.onrender.com/api",
   withCredentials: true,
 });
 
