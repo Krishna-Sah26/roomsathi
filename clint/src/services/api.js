@@ -1,20 +1,22 @@
 import axios from "axios";
 
-const baseURL = import.meta.env.VITE_API_URL || 
+const baseURL = (
+  import.meta.env.VITE_API_URL || 
   (import.meta.env.DEV 
     ? "http://localhost:5000/api" 
-    : "https://roomsathi-k4gr.onrender.com/api");
+    : "https://roomsathi-k4gr.onrender.com/api")
+).replace(/\/$/, "");
 
 const API = axios.create({
   baseURL,
-  withCredentials: true,  // ← yeh add karo, Google OAuth ke liye zaroori
+  withCredentials: true,
 });
 
-// Token automatically har request mein lagega
 API.interceptors.request.use((config) => {
-  const token = localStorage.getItem("token");
-  if (token) {
-    config.headers.Authorization = `Bearer ${token}`;
+  const userInfo = localStorage.getItem("userInfo");
+  if (userInfo) {
+    const token = JSON.parse(userInfo)?.token;
+    if (token) config.headers.Authorization = `Bearer ${token}`;
   }
   return config;
 });
