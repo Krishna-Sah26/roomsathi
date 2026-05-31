@@ -45,7 +45,7 @@ function Login() {
       setFormError("")
       setLoading(true)
 
-      const { data } = await API.post("/auth/login", {
+      const { data } = await API.post("/api/auth/login", {
         email,
         password,
         role,
@@ -68,7 +68,7 @@ function Login() {
       const result = await signInWithPopup(auth, provider)
       const user = result.user
 
-      const { data } = await API.post("/auth/google", {
+      const { data } = await API.post("/api/auth/google", {
         name: user.displayName,
         email: user.email,
         image: user.photoURL,
@@ -90,7 +90,7 @@ function Login() {
       setForgotLoading(true)
 
       if (forgotStep === "request") {
-        const { data } = await API.post("/auth/forgot-password/request", {
+        const { data } = await API.post("/api/auth/forgot-password/request", {
           email: forgotEmail || email,
         })
 
@@ -100,7 +100,7 @@ function Login() {
         return
       }
 
-      const { data } = await API.post("/auth/forgot-password/verify", {
+      const { data } = await API.post("/api/auth/forgot-password/verify", {
         email: forgotEmail || email,
         code: forgotCode,
         newPassword: forgotNewPassword,

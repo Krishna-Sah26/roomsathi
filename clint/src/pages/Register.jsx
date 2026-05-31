@@ -66,7 +66,7 @@ function Register() {
       setFormError("")
       setLoading(true)
 
-      const { data } = await API.post("/auth/register", {
+      const { data } = await API.post("/api/auth/register", {
         name,
         email,
         password,
@@ -90,7 +90,7 @@ function Register() {
       const result = await signInWithPopup(auth, provider)
       const user = result.user
 
-      const { data } = await API.post("/auth/google", {
+      const { data } = await API.post("/api/auth/google", {
         name: user.displayName,
         email: user.email,
         image: user.photoURL,
