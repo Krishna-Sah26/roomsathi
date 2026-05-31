@@ -1,0 +1,68 @@
+@import "tailwindcss";
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Inter, "Segoe UI", Arial, sans-serif;
+  background: #ffffff;
+  color: #0f172a;
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+html[data-theme="dark"] body {
+  background: #020617;
+  color: #e2e8f0;
+}
+
+html[data-theme="dark"] .bg-white,
+html[data-theme="dark"] .bg-\[\#f5f5ff\],
+html[data-theme="dark"] .bg-\[\#f7f7ff\],
+html[data-theme="dark"] .bg-\[\#f8f8ff\],
+html[data-theme="dark"] .bg-\[\#fbfbff\],
+html[data-theme="dark"] .bg-\[\#f1f0ff\],
+html[data-theme="dark"] .bg-\[\#e6e6ef\] {
+  background-color: #0f172a !important;
+}
+
+html[data-theme="dark"] .bg-slate-50,
+html[data-theme="dark"] .bg-slate-100,
+html[data-theme="dark"] .bg-slate-200 {
+  background-color: #111827 !important;
+}
+
+html[data-theme="dark"] .border-slate-200,
+html[data-theme="dark"] .border-slate-300 {
+  border-color: #334155 !important;
+}
+
+html[data-theme="dark"] .text-slate-900 {
+  color: #f8fafc !important;
+}
+
+html[data-theme="dark"] .text-slate-800 {
+  color: #e2e8f0 !important;
+}
+
+html[data-theme="dark"] .text-slate-700 {
+  color: #cbd5e1 !important;
+}
+
+html[data-theme="dark"] .text-slate-600 {
+  color: #94a3b8 !important;
+}
+
+html[data-theme="dark"] .text-slate-500 {
+  color: #94a3b8 !important;
+}
+
+html[data-theme="dark"] .text-slate-400 {
+  color: #64748b !important;
+}
