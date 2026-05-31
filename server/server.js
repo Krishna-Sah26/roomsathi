@@ -16,7 +16,7 @@ const app = express()
 app.use(cors())
 app.use(express.json())
 
-app.use("/api/auth", google)
+app.use("/api/auth", authRoutes)
 app.use("/api/rooms", roomRoutes)
 app.use("/api/users", userRoutes)
 app.use("/api/owners", ownerRoutes)
