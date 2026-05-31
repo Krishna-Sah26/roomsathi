@@ -1,7 +1,7 @@
 import axios from "axios"
 
 const API = axios.create({
-  baseURL: "http://localhost:5000/api",
+  baseURL: "https://roomsathi-k4gr.onrender.com",
 })
 
 export default API
