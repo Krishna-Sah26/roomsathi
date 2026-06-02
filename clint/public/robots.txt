@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://roomsathi-blush.vercel.app/sitemap.xml
