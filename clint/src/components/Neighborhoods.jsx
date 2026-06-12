@@ -5,27 +5,24 @@ const neighborhoods = [
     title: "Birgunj Market",
     subtitle: "The heart of commerce and convenience.",
     image:
-      "https://images.unsplash.com/photo-1519608487953-e999c86e7455?q=80&w=1400&auto=format&fit=crop",
+      "https://scontent.fktm7-1.fna.fbcdn.net/v/t39.30808-6/472721159_2188777714920366_450765007451783320_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=833d8c&_nc_ohc=kJMyaoNtI8AQ7kNvwHg_k1B&_nc_oc=AdoQg-2md4Bfmdg0Y5K0KF-d1MzS4Gckj83bv41WhSMU6sG9R7rgR9uBHsj_VNInJUpi4djn4sFJAEBRfSF4BH8f&_nc_zt=23&_nc_ht=scontent.fktm7-1.fna&_nc_gid=hkFkZFN_fMrP4k8lKCx81A&_nc_ss=7b2a8&oh=00_Af4OXkr-vUdO9mjt0PHOpKGWJYEPpfW2t3BJL0Ap5h7K7g&oe=6A1F42FB",
     span: "md:col-span-1 md:row-span-2",
   },
   {
     title: "Adarshnagar",
     subtitle: "Premium residential community.",
     image:
-      "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?q=80&w=1400&auto=format&fit=crop",
+      "https://scontent.fktm7-1.fna.fbcdn.net/v/t39.30808-6/488509757_1049783497183546_8705668052756281786_n.jpg?stp=dst-jpg_s720x720_tt6&_nc_cat=108&ccb=1-7&_nc_sid=833d8c&_nc_ohc=m4bt7glugvAQ7kNvwGHF1Sn&_nc_oc=Adpbu3BqbBOV4mfMvlrUGneGOHGXGVE-Mv2dWV--oMsCoY9xAzAnN-h6rhcyc5dT2aiqa_jmts0P0WVShQKF5q1w&_nc_zt=23&_nc_ht=scontent.fktm7-1.fna&_nc_gid=wEDItQOskCLqfLPxn2ksRg&_nc_ss=7b2a8&oh=00_Af6GXpaIHhtk0doAicb0qnABvU-ZfH-gh5o6-tgOpY20wQ&oe=6A1F3FB1",
     span: "md:col-span-1",
   },
   {
     title: "Pratima Chowk",
     subtitle: "Up-and-coming living hub.",
     image:
-      "https://images.unsplash.com/photo-1494526585095-c41746248156?q=80&w=1400&auto=format&fit=crop",
+      "https://scontent.fktm10-1.fna.fbcdn.net/v/t39.30808-6/474204031_1178340493791678_8797010872277763191_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=127cfc&_nc_ohc=tjXgbxQJoA8Q7kNvwE3doOM&_nc_oc=AdoZLo6T6uGU_zRkcf7EllrCTxMMLXEOe9AQiy80Y5XZOKfCpJcFOdMi9EKNqnrpE_WzzUioEJSmHRYg3pfnR2pl&_nc_zt=23&_nc_ht=scontent.fktm10-1.fna&_nc_gid=k9sC12JWYQFfaeorUgn1OQ&_nc_ss=7b2a8&oh=00_Af6lwweiRWCyjJFEFo0WObMOr03CsIEydZTE8HIgMUX-bw&oe=6A1F2EDB",
     span: "md:col-span-1",
   },
 ]
-
-const fallbackImage =
-  "data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 800'%3E%3Crect width='1200' height='800' fill='%230f172a'/%3E%3Cpath d='M0 560 C 240 500, 360 680, 600 620 S 960 500, 1200 580 L 1200 800 L 0 800 Z' fill='%231d4ed8' fill-opacity='.18'/%3E%3Ccircle cx='980' cy='180' r='110' fill='%23f59e0b' fill-opacity='.18'/%3E%3Ctext x='60' y='110' fill='%23ffffff' font-family='Arial, sans-serif' font-size='54' font-weight='700'%3ERoomSathi%3C/text%3E%3Ctext x='60' y='170' fill='%23cbd5e1' font-family='Arial, sans-serif' font-size='28'%3ENeighborhood preview unavailable%3C/text%3E%3C/svg%3E"
 
 function Neighborhoods() {
   const { theme } = useTheme()
@@ -47,9 +44,6 @@ function Neighborhoods() {
                 src={neighborhood.image}
                 alt={neighborhood.title}
                 className="h-full w-full object-cover"
-                onError={(event) => {
-                  event.currentTarget.src = fallbackImage
-                }}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
               <div className="absolute bottom-4 left-4 text-white">
