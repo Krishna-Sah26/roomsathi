@@ -48,9 +48,9 @@ function FeaturedRooms({ search }) {
   }, [rooms, search])
 
   return (
-    <section className={theme === "dark" ? "bg-slate-950 px-4 py-16 md:py-20" : "bg-[#f7f6ff] px-4 py-16 md:py-20"}>
+    <section className={theme === "dark" ? "bg-slate-950 px-4 py-14 md:py-20" : "bg-[#f7f6ff] px-4 py-14 md:py-20"}>
       <div className="mx-auto max-w-7xl">
-        <div className="mb-10">
+        <div className="mb-8">
           <h2 className={theme === "dark" ? "text-2xl font-semibold tracking-tight text-white md:text-3xl" : "text-2xl font-semibold tracking-tight text-slate-900 md:text-3xl"}>
             Latest Rooms
           </h2>

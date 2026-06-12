@@ -227,9 +227,9 @@ function AddRoom() {
     <div className={theme === "dark" ? "min-h-screen bg-slate-950 text-slate-100" : "min-h-screen bg-[#f5f5ff] text-slate-900"}>
       {/* Page header */}
       <header className={theme === "dark" ? "border-b border-slate-800 bg-slate-950/90 backdrop-blur" : "border-b border-slate-200 bg-white/90 backdrop-blur"}>
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 md:px-6">
-          <BrandLogo to="/" textClassName="text-2xl text-blue-700" />
-          <div className="flex items-center gap-3">
+        <div className="mx-auto flex max-w-7xl flex-col gap-3 px-4 py-4 sm:flex-row sm:items-center sm:justify-between md:px-6">
+          <BrandLogo to="/" textClassName="text-lg text-blue-700 sm:text-2xl" />
+          <div className="flex flex-wrap items-center gap-3">
             <ThemeToggle />
             <button
               type="button"
@@ -251,7 +251,7 @@ function AddRoom() {
 
       {/* Stepper */}
       <main className="mx-auto max-w-7xl px-4 py-6 md:px-6 md:py-8">
-        <div className={theme === "dark" ? "mb-6 flex items-start justify-between gap-2 text-center text-sm text-slate-400" : "mb-6 flex items-start justify-between gap-2 text-center text-sm text-slate-600"}>
+        <div className={theme === "dark" ? "mb-6 flex items-start justify-between gap-2 text-center text-xs text-slate-400 sm:text-sm" : "mb-6 flex items-start justify-between gap-2 text-center text-xs text-slate-600 sm:text-sm"}>
           {["Basic Info", "Location", "Details", "Photos", "Contact"].map((step, index) => {
             const stepNumber = index + 1
             const isActive = currentStep >= stepNumber
@@ -285,11 +285,11 @@ function AddRoom() {
         </div>
 
         <div className={theme === "dark" ? "mx-auto max-w-4xl overflow-hidden rounded-3xl bg-slate-900 shadow-[0_20px_55px_rgba(0,0,0,0.4)] ring-1 ring-slate-800" : "mx-auto max-w-4xl overflow-hidden rounded-3xl bg-white shadow-[0_20px_55px_rgba(15,23,42,0.08)] ring-1 ring-slate-200"}>
-          <div className="p-6 md:p-10">
+          <div className="p-5 sm:p-6 md:p-10">
             {/* Basic property info */}
             <section ref={(element) => (sectionRefs.current[0] = element)} data-step="1">
-              <h2 className={theme === "dark" ? "text-2xl font-semibold text-white" : "text-2xl font-semibold"}>{" "}Basic Property Information</h2>
-              <p className={theme === "dark" ? "mt-2 text-sm text-slate-400" : "mt-2 text-sm text-slate-500"}>Start with the basic details of your listing.</p>
+              <h2 className={theme === "dark" ? "text-xl font-semibold text-white sm:text-2xl" : "text-xl font-semibold sm:text-2xl"}>{" "}Basic Property Information</h2>
+              <p className={theme === "dark" ? "mt-2 text-sm leading-6 text-slate-400" : "mt-2 text-sm leading-6 text-slate-500"}>Start with the basic details of your listing.</p>
               <div className={theme === "dark" ? "mt-6 h-px bg-slate-700" : "mt-6 h-px bg-slate-200"} />
 
               <div className="mt-6">
@@ -327,7 +327,7 @@ function AddRoom() {
 
             {/* Location details */}
             <section className="mt-10" ref={(element) => (sectionRefs.current[1] = element)} data-step="2">
-              <h2 className={theme === "dark" ? "text-2xl font-semibold text-white" : "text-2xl font-semibold"}>Location Details</h2>
+              <h2 className={theme === "dark" ? "text-xl font-semibold text-white sm:text-2xl" : "text-xl font-semibold sm:text-2xl"}>Location Details</h2>
               <p className={theme === "dark" ? "mt-2 text-sm text-slate-400" : "mt-2 text-sm text-slate-500"}>Help seekers find your property in Birgunj.</p>
               <div className={theme === "dark" ? "mt-6 h-px bg-slate-700" : "mt-6 h-px bg-slate-200"} />
 
@@ -422,7 +422,7 @@ function AddRoom() {
 
             {/* Pricing and amenities */}
             <section className="mt-10" ref={(element) => (sectionRefs.current[2] = element)} data-step="3">
-              <h2 className={theme === "dark" ? "text-2xl font-semibold text-white" : "text-2xl font-semibold"}>Pricing & Amenities</h2>
+              <h2 className={theme === "dark" ? "text-xl font-semibold text-white sm:text-2xl" : "text-xl font-semibold sm:text-2xl"}>Pricing & Amenities</h2>
               <p className={theme === "dark" ? "mt-2 text-sm text-slate-400" : "mt-2 text-sm text-slate-500"}>Specify your rent and available facilities.</p>
               <div className={theme === "dark" ? "mt-6 h-px bg-slate-700" : "mt-6 h-px bg-slate-200"} />
 
@@ -489,7 +489,7 @@ function AddRoom() {
 
             {/* Property photos */}
             <section className="mt-10" ref={(element) => (sectionRefs.current[3] = element)} data-step="4">
-              <h2 className={theme === "dark" ? "text-2xl font-semibold text-white" : "text-2xl font-semibold"}>Property Photos</h2>
+              <h2 className={theme === "dark" ? "text-xl font-semibold text-white sm:text-2xl" : "text-xl font-semibold sm:text-2xl"}>Property Photos</h2>
               <p className={theme === "dark" ? "mt-2 text-sm text-slate-400" : "mt-2 text-sm text-slate-500"}>Upload clear photos to get more inquiries (Min 3).</p>
               <div className={theme === "dark" ? "mt-6 h-px bg-slate-700" : "mt-6 h-px bg-slate-200"} />
 
@@ -537,7 +537,7 @@ function AddRoom() {
 
             {/* Contact information */}
             <section className="mt-10" ref={(element) => (sectionRefs.current[4] = element)} data-step="5">
-              <h2 className={theme === "dark" ? "text-2xl font-semibold text-white" : "text-2xl font-semibold"}>Contact Information</h2>
+              <h2 className={theme === "dark" ? "text-xl font-semibold text-white sm:text-2xl" : "text-xl font-semibold sm:text-2xl"}>Contact Information</h2>
               <p className={theme === "dark" ? "mt-2 text-sm text-slate-400" : "mt-2 text-sm text-slate-500"}>How should potential tenants reach you?</p>
               <div className={theme === "dark" ? "mt-6 h-px bg-slate-700" : "mt-6 h-px bg-slate-200"} />
 

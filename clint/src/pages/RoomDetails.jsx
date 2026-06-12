@@ -113,9 +113,9 @@ function RoomDetails() {
   return (
     <div className={theme === "dark" ? "min-h-screen bg-slate-950 text-slate-100" : "min-h-screen bg-[#f5f5ff] text-slate-900"}>
       <header className={theme === "dark" ? "border-b border-slate-800 bg-slate-950/90 backdrop-blur" : "border-b border-slate-200 bg-white/90 backdrop-blur"}>
-        <div className="mx-auto flex max-w-[1600px] flex-wrap items-center justify-between gap-3 px-4 py-4 md:px-6">
-          <BrandLogo to="/rooms" size="lg" textClassName={theme === "dark" ? "text-2xl text-white" : "text-2xl text-blue-700"} />
-          <div className="flex flex-wrap items-center justify-end gap-3">
+        <div className="mx-auto flex max-w-[1600px] flex-col gap-3 px-4 py-4 sm:flex-row sm:items-center sm:justify-between md:px-6">
+          <BrandLogo to="/rooms" size="lg" textClassName={theme === "dark" ? "text-lg text-white sm:text-2xl" : "text-lg text-blue-700 sm:text-2xl"} />
+          <div className="flex flex-wrap items-center gap-3">
             <Link to="/rooms" className={theme === "dark" ? "text-sm font-medium text-slate-300" : "text-sm font-medium text-slate-700"}>
               All Rooms
             </Link>
@@ -144,11 +144,11 @@ function RoomDetails() {
                   <img
                     src={mainImage}
                     alt={room.title}
-                    className="h-[380px] w-full cursor-pointer object-cover md:h-[420px]"
+                    className="h-[260px] w-full cursor-pointer object-cover sm:h-[320px] md:h-[420px]"
                     onClick={() => setSelectedImage("")}
                   />
                 ) : (
-                  <div className={theme === "dark" ? "flex h-[380px] items-center justify-center text-slate-500 md:h-[420px]" : "flex h-[380px] items-center justify-center text-slate-500 md:h-[420px]"}>
+                  <div className={theme === "dark" ? "flex h-[260px] items-center justify-center text-slate-500 sm:h-[320px] md:h-[420px]" : "flex h-[260px] items-center justify-center text-slate-500 sm:h-[320px] md:h-[420px]"}>
                     No uploaded image
                   </div>
                 )}
@@ -178,7 +178,7 @@ function RoomDetails() {
               <div className={theme === "dark" ? "rounded-[24px] bg-slate-900 p-6 shadow-sm ring-1 ring-slate-800 md:p-8" : "rounded-[24px] bg-white p-6 shadow-sm ring-1 ring-slate-200 md:p-8"}>
                 <div className="flex flex-col gap-6 md:flex-row md:items-start md:justify-between">
                   <div className="min-w-0 flex-1">
-                    <h2 className="text-2xl font-bold tracking-tight md:text-4xl">{room.title}</h2>
+                    <h2 className="text-2xl font-bold tracking-tight sm:text-3xl md:text-4xl">{room.title}</h2>
                     <p className={theme === "dark" ? "mt-3 flex items-start gap-2 text-base text-slate-400 md:text-lg" : "mt-3 flex items-start gap-2 text-base text-slate-600 md:text-lg"}>
                       <MapPin size={18} className="mt-1 shrink-0" />
                       <span className="line-clamp-3">{room.location}</span>
@@ -195,7 +195,7 @@ function RoomDetails() {
                     </div>
                   </div>
                   <div className="shrink-0 text-left md:text-right">
-                    <div className={theme === "dark" ? "text-3xl font-bold text-blue-400 md:text-4xl" : "text-3xl font-bold text-blue-700 md:text-4xl"}>Rs {room.price}</div>
+                    <div className={theme === "dark" ? "text-2xl font-bold text-blue-400 sm:text-3xl md:text-4xl" : "text-2xl font-bold text-blue-700 sm:text-3xl md:text-4xl"}>Rs {room.price}</div>
                     <div className={theme === "dark" ? "mt-1 text-xs uppercase tracking-[0.25em] text-slate-500 md:text-sm" : "mt-1 text-xs uppercase tracking-[0.25em] text-slate-500 md:text-sm"}>
                       per month
                     </div>

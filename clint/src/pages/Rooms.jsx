@@ -364,7 +364,7 @@ function Rooms() {
           </div>
         </aside>
 
-        <main className="flex-1 px-4 py-8 md:px-6">
+        <main className="flex-1 px-4 py-6 md:px-6 md:py-8">
           <div className="mb-4 flex gap-2 overflow-x-auto lg:hidden">
             {FILTER_TABS.map((tab) => {
               const Icon = tab.icon
@@ -398,10 +398,10 @@ function Rooms() {
 
           <div className="flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
             <div>
-              <h2 className={theme === "dark" ? "text-3xl font-bold tracking-tight text-white md:text-4xl" : "text-3xl font-bold tracking-tight md:text-4xl"}>
+              <h2 className={theme === "dark" ? "text-2xl font-bold tracking-tight text-white sm:text-3xl md:text-4xl" : "text-2xl font-bold tracking-tight sm:text-3xl md:text-4xl"}>
                 Available Rooms in Birgunj
               </h2>
-              <p className={theme === "dark" ? "mt-3 text-base text-slate-300" : "mt-3 text-base text-slate-600"}>
+              <p className={theme === "dark" ? "mt-3 text-sm leading-7 text-slate-300 sm:text-base" : "mt-3 text-sm leading-7 text-slate-600 sm:text-base"}>
                 Showing {filteredCount} properties
                 {activeFilter === "verified" ? " (verified only)" : ""}
                 {activeFilter === "newest" ? " (newest first)" : ""}
@@ -458,8 +458,8 @@ function Rooms() {
           <section className="mt-10 grid grid-cols-1 gap-6 xl:grid-cols-[1.3fr_0.7fr]">
             <div className="min-w-0">
               <div className="mb-5">
-                <h3 className={theme === "dark" ? "text-2xl font-bold tracking-tight text-white md:text-3xl" : "text-2xl font-bold tracking-tight md:text-3xl"}>Smart Geo Explorer</h3>
-                <p className={theme === "dark" ? "mt-2 text-sm text-slate-300" : "mt-2 text-sm text-slate-600"}>
+                <h3 className={theme === "dark" ? "text-xl font-bold tracking-tight text-white sm:text-2xl md:text-3xl" : "text-xl font-bold tracking-tight sm:text-2xl md:text-3xl"}>Smart Geo Explorer</h3>
+                <p className={theme === "dark" ? "mt-2 text-sm leading-6 text-slate-300" : "mt-2 text-sm leading-6 text-slate-600"}>
                   Search places, use your current location, and see rooms near you.
                 </p>
               </div>
@@ -483,9 +483,9 @@ function Rooms() {
               </button>
             </div>
 
-            <div className={theme === "dark" ? "rounded-[24px] bg-slate-900 p-6 shadow-sm ring-1 ring-slate-800" : "rounded-[24px] bg-white p-6 shadow-sm ring-1 ring-slate-200"}>
+            <div className={theme === "dark" ? "rounded-[24px] bg-slate-900 p-5 shadow-sm ring-1 ring-slate-800 sm:p-6" : "rounded-[24px] bg-white p-5 shadow-sm ring-1 ring-slate-200 sm:p-6"}>
               <h4 className={theme === "dark" ? "text-xl font-semibold text-white" : "text-xl font-semibold text-slate-900"}>Nearby Places</h4>
-              <p className={theme === "dark" ? "mt-2 text-sm text-slate-300" : "mt-2 text-sm text-slate-600"}>
+              <p className={theme === "dark" ? "mt-2 text-sm leading-6 text-slate-300" : "mt-2 text-sm leading-6 text-slate-600"}>
                 Live place search using OpenStreetMap data.
               </p>
 
@@ -532,22 +532,22 @@ function Rooms() {
           </section>
 
           <section className="mt-6 grid grid-cols-1 gap-6 xl:grid-cols-[2fr_1fr]">
-            <div className="rounded-[24px] bg-blue-700 p-8 text-white shadow-sm">
+            <div className="rounded-[24px] bg-blue-700 p-6 text-white shadow-sm sm:p-8">
               <div className="max-w-2xl">
-                <h3 className="text-4xl font-bold tracking-tight md:text-5xl">Post Your Room?</h3>
-                <p className="mt-6 max-w-xl text-lg leading-9 text-blue-100">
+                <h3 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">Post Your Room?</h3>
+                <p className="mt-5 max-w-xl text-base leading-8 text-blue-100 sm:mt-6 sm:text-lg sm:leading-9">
                   Reach potential tenants in Birgunj every month. List your property for free.
                 </p>
                 <Link
                   to="/login?role=owner"
-                  className="mt-10 inline-flex rounded-2xl bg-white px-8 py-4 text-lg font-semibold text-blue-700"
+                  className="mt-8 inline-flex rounded-2xl bg-white px-6 py-3 text-base font-semibold text-blue-700 sm:mt-10 sm:px-8 sm:py-4 sm:text-lg"
                 >
                   List Your Property
                 </Link>
               </div>
             </div>
 
-            <div className={theme === "dark" ? "rounded-[24px] bg-slate-900 p-6 shadow-sm ring-1 ring-slate-800" : "rounded-[24px] bg-white p-6 shadow-sm ring-1 ring-slate-200"}>
+            <div className={theme === "dark" ? "rounded-[24px] bg-slate-900 p-5 shadow-sm ring-1 ring-slate-800 sm:p-6" : "rounded-[24px] bg-white p-5 shadow-sm ring-1 ring-slate-200 sm:p-6"}>
               <h4 className={theme === "dark" ? "text-xl font-semibold text-white" : "text-xl font-semibold text-slate-900"}>Need help?</h4>
               <p className={theme === "dark" ? "mt-3 text-sm leading-7 text-slate-300" : "mt-3 text-sm leading-7 text-slate-600"}>
                 Chat with RoomSathi support on WhatsApp for finding rooms in Birgunj.

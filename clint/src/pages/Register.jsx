@@ -110,13 +110,13 @@ function Register() {
     <div className={theme === "dark" ? "min-h-screen bg-slate-950 text-slate-100" : "min-h-screen bg-[#f5f5ff] text-slate-900"}>
       {/* Page header */}
       <header className={theme === "dark" ? "border-b border-slate-800 bg-slate-950/90 backdrop-blur" : "border-b border-slate-200 bg-white/90 backdrop-blur"}>
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 md:px-6">
+        <div className="mx-auto flex max-w-7xl flex-col gap-3 px-4 py-3 sm:flex-row sm:items-center sm:justify-between md:px-6">
           <BrandLogo
             to="/"
             size="lg"
-            textClassName={theme === "dark" ? "text-xl text-white" : "text-xl text-blue-700"}
+            textClassName={theme === "dark" ? "text-lg text-white sm:text-xl" : "text-lg text-blue-700 sm:text-xl"}
           />
-          <div className="flex items-center gap-3">
+          <div className="flex flex-wrap items-center gap-3">
             <ThemeToggle />
             <span className="hidden text-sm font-medium text-slate-600 md:block">
               Local Guide
@@ -164,9 +164,9 @@ function Register() {
             </section>
 
             {/* Right auth form */}
-            <section className={theme === "dark" ? "bg-slate-900 p-5 md:p-8 lg:p-10" : "bg-white p-5 md:p-8 lg:p-10"}>
+            <section className={theme === "dark" ? "bg-slate-900 p-4 sm:p-5 md:p-8 lg:p-10" : "bg-white p-4 sm:p-5 md:p-8 lg:p-10"}>
               {/* Auth tabs */}
-              <div className={theme === "dark" ? "mb-6 flex items-center gap-8 border-b border-slate-800 text-lg font-semibold" : "mb-6 flex items-center gap-8 border-b border-slate-200 text-lg font-semibold"}>
+              <div className={theme === "dark" ? "mb-6 flex items-center gap-6 border-b border-slate-800 text-base font-semibold sm:text-lg" : "mb-6 flex items-center gap-6 border-b border-slate-200 text-base font-semibold sm:text-lg"}>
                 <Link to={`/login${location.search}`} className="pb-3 text-slate-400 transition hover:text-slate-700">
                   Login
                 </Link>
@@ -175,26 +175,26 @@ function Register() {
                 </Link>
               </div>
 
-              <h2 className={theme === "dark" ? "text-2xl font-bold tracking-tight text-white" : "text-2xl font-bold tracking-tight"}>
+              <h2 className={theme === "dark" ? "text-2xl font-bold tracking-tight text-white sm:text-3xl" : "text-2xl font-bold tracking-tight sm:text-3xl"}>
                 Create Account
               </h2>
-              <p className={theme === "dark" ? "mt-2 text-sm text-slate-400" : "mt-2 text-sm text-slate-500"}>
+              <p className={theme === "dark" ? "mt-2 text-sm leading-6 text-slate-400" : "mt-2 text-sm leading-6 text-slate-500"}>
                 Join RoomSathi to save rooms and contact owners directly.
               </p>
 
               {routeMessage ? (
-                <div className={theme === "dark" ? "mt-4 rounded-lg border border-slate-800 bg-slate-950 px-3 py-2 text-xs text-slate-300" : "mt-4 rounded-lg border border-blue-100 bg-blue-50 px-3 py-2 text-xs text-slate-700"}>
+                <div className={theme === "dark" ? "mt-4 rounded-lg border border-slate-800 bg-slate-950 px-3 py-2 text-sm text-slate-300" : "mt-4 rounded-lg border border-blue-100 bg-blue-50 px-3 py-2 text-sm text-slate-700"}>
                   {routeMessage}
                 </div>
               ) : null}
 
               {/* Validation note */}
-              <div className={theme === "dark" ? "mt-4 rounded-lg border border-slate-800 bg-slate-950 px-3 py-2 text-xs text-slate-300" : "mt-4 rounded-lg border border-blue-100 bg-blue-50 px-3 py-2 text-xs text-slate-600"}>
+              <div className={theme === "dark" ? "mt-4 rounded-lg border border-slate-800 bg-slate-950 px-3 py-2 text-sm text-slate-300" : "mt-4 rounded-lg border border-blue-100 bg-blue-50 px-3 py-2 text-sm text-slate-600"}>
                 Use a capitalized name, a <span className="font-semibold">@gmail.com</span> email, and a password between 4 and 20 characters including uppercase and lowercase letters.
               </div>
 
               {/* Live validation checklist */}
-              <div className={theme === "dark" ? "mt-4 rounded-xl border border-slate-800 bg-slate-950 px-3 py-3 text-xs text-slate-300" : "mt-4 rounded-xl border border-slate-200 bg-[#fbfbff] px-3 py-3 text-xs text-slate-600"}>
+              <div className={theme === "dark" ? "mt-4 rounded-xl border border-slate-800 bg-slate-950 px-3 py-3 text-sm text-slate-300" : "mt-4 rounded-xl border border-slate-200 bg-[#fbfbff] px-3 py-3 text-sm text-slate-600"}>
                 <div className={theme === "dark" ? "mb-2 font-semibold text-slate-100" : "mb-2 font-semibold text-slate-800"}>Live checks</div>
 
                 <div className="space-y-1.5">
@@ -216,7 +216,7 @@ function Register() {
 
               {/* Name field */}
               <div className="mt-6">
-                <label className={theme === "dark" ? "mb-1.5 block text-xs font-semibold tracking-wide text-slate-200" : "mb-1.5 block text-xs font-semibold tracking-wide text-slate-800"}>
+                <label className={theme === "dark" ? "mb-1.5 block text-sm font-semibold tracking-wide text-slate-200" : "mb-1.5 block text-sm font-semibold tracking-wide text-slate-800"}>
                   Full Name
                 </label>
                 <div className={theme === "dark" ? "flex items-center rounded-lg border border-slate-700 bg-slate-950 px-3 py-2.5 shadow-sm" : "flex items-center rounded-lg border border-slate-300 bg-[#f7f7ff] px-3 py-2.5 shadow-sm"}>
@@ -226,14 +226,14 @@ function Register() {
                     placeholder="Your full name"
                     value={name}
                     onChange={(e) => setName(e.target.value)}
-                    className={theme === "dark" ? "w-full bg-transparent text-sm text-slate-100 outline-none placeholder:text-slate-500" : "w-full bg-transparent text-sm outline-none placeholder:text-slate-400"}
+                    className={theme === "dark" ? "w-full bg-transparent text-base text-slate-100 outline-none placeholder:text-slate-500" : "w-full bg-transparent text-base outline-none placeholder:text-slate-400"}
                   />
                 </div>
               </div>
 
               {/* Email field */}
               <div className="mt-4">
-                <label className={theme === "dark" ? "mb-1.5 block text-xs font-semibold tracking-wide text-slate-200" : "mb-1.5 block text-xs font-semibold tracking-wide text-slate-800"}>
+                <label className={theme === "dark" ? "mb-1.5 block text-sm font-semibold tracking-wide text-slate-200" : "mb-1.5 block text-sm font-semibold tracking-wide text-slate-800"}>
                   Email Address
                 </label>
                 <div className={theme === "dark" ? "flex items-center rounded-lg border border-slate-700 bg-slate-950 px-3 py-2.5 shadow-sm" : "flex items-center rounded-lg border border-slate-300 bg-[#f7f7ff] px-3 py-2.5 shadow-sm"}>
@@ -243,20 +243,20 @@ function Register() {
                     placeholder="name@gmail.com"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    className={theme === "dark" ? "w-full bg-transparent text-sm text-slate-100 outline-none placeholder:text-slate-500" : "w-full bg-transparent text-sm outline-none placeholder:text-slate-400"}
+                    className={theme === "dark" ? "w-full bg-transparent text-base text-slate-100 outline-none placeholder:text-slate-500" : "w-full bg-transparent text-base outline-none placeholder:text-slate-400"}
                   />
                 </div>
               </div>
 
               {/* Role selector */}
               <div className="mt-4">
-                <label className={theme === "dark" ? "mb-1.5 block text-xs font-semibold tracking-wide text-slate-200" : "mb-1.5 block text-xs font-semibold tracking-wide text-slate-800"}>
+                <label className={theme === "dark" ? "mb-1.5 block text-sm font-semibold tracking-wide text-slate-200" : "mb-1.5 block text-sm font-semibold tracking-wide text-slate-800"}>
                   Register as
                 </label>
                 <select
                   value={role}
                   onChange={(e) => setRole(e.target.value)}
-                  className="w-full rounded-lg border border-slate-300 bg-[#f7f7ff] px-3 py-2.5 text-sm outline-none"
+                  className="w-full rounded-lg border border-slate-300 bg-[#f7f7ff] px-3 py-2.5 text-base outline-none"
                 >
                   <option value="user">Seeker</option>
                   <option value="owner">Owner</option>
@@ -265,7 +265,7 @@ function Register() {
 
               {/* Password field */}
               <div className="mt-4">
-                <label className={theme === "dark" ? "mb-1.5 block text-xs font-semibold tracking-wide text-slate-200" : "mb-1.5 block text-xs font-semibold tracking-wide text-slate-800"}>
+                <label className={theme === "dark" ? "mb-1.5 block text-sm font-semibold tracking-wide text-slate-200" : "mb-1.5 block text-sm font-semibold tracking-wide text-slate-800"}>
                   Password
                 </label>
                 <div className={theme === "dark" ? "flex items-center rounded-lg border border-slate-700 bg-slate-950 px-3 py-2.5 shadow-sm" : "flex items-center rounded-lg border border-slate-300 bg-[#f7f7ff] px-3 py-2.5 shadow-sm"}>
@@ -275,7 +275,7 @@ function Register() {
                     placeholder="4-20 chars, upper and lower case"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
-                    className={theme === "dark" ? "w-full bg-transparent text-sm text-slate-100 outline-none placeholder:text-slate-500" : "w-full bg-transparent text-sm outline-none placeholder:text-slate-400"}
+                    className={theme === "dark" ? "w-full bg-transparent text-base text-slate-100 outline-none placeholder:text-slate-500" : "w-full bg-transparent text-base outline-none placeholder:text-slate-400"}
                   />
                   <button
                     type="button"
@@ -286,7 +286,7 @@ function Register() {
                     {showPassword ? <FaEyeSlash /> : <FaEye />}
                   </button>
                 </div>
-                <div className="mt-1.5 flex items-center justify-between text-[10px] text-slate-500">
+                <div className="mt-1.5 flex items-center justify-between text-xs text-slate-500">
                   <span>
                     {password.length < 4
                       ? "Minimum 4 characters"
@@ -300,7 +300,7 @@ function Register() {
 
               {/* Confirm password field */}
               <div className="mt-4">
-                <label className={theme === "dark" ? "mb-1.5 block text-xs font-semibold tracking-wide text-slate-200" : "mb-1.5 block text-xs font-semibold tracking-wide text-slate-800"}>
+                <label className={theme === "dark" ? "mb-1.5 block text-sm font-semibold tracking-wide text-slate-200" : "mb-1.5 block text-sm font-semibold tracking-wide text-slate-800"}>
                   Confirm Password
                 </label>
                 <div className={theme === "dark" ? "flex items-center rounded-lg border border-slate-700 bg-slate-950 px-3 py-2.5 shadow-sm" : "flex items-center rounded-lg border border-slate-300 bg-[#f7f7ff] px-3 py-2.5 shadow-sm"}>
@@ -310,7 +310,7 @@ function Register() {
                     placeholder="Repeat password"
                     value={confirmPassword}
                     onChange={(e) => setConfirmPassword(e.target.value)}
-                    className={theme === "dark" ? "w-full bg-transparent text-sm text-slate-100 outline-none placeholder:text-slate-500" : "w-full bg-transparent text-sm outline-none placeholder:text-slate-400"}
+                    className={theme === "dark" ? "w-full bg-transparent text-base text-slate-100 outline-none placeholder:text-slate-500" : "w-full bg-transparent text-base outline-none placeholder:text-slate-400"}
                   />
                   <button
                     type="button"
@@ -326,7 +326,7 @@ function Register() {
               {/* Real register button */}
               <button
                 onClick={handleRegister}
-                className=" cursor-pointer mt-6 w-full rounded-lg bg-blue-700 py-3 text-sm font-semibold text-white shadow-lg shadow-blue-700/20 transition hover:bg-blue-800 disabled:cursor-not-allowed disabled:opacity-70"
+                className="cursor-pointer mt-6 w-full rounded-lg bg-blue-700 py-3 text-base font-semibold text-white shadow-lg shadow-blue-700/20 transition hover:bg-blue-800 disabled:cursor-not-allowed disabled:opacity-70"
                 disabled={loading}
               >
                 {loading ? "Creating Account..." : "Sign Up"}
@@ -343,13 +343,13 @@ function Register() {
               <button
                 type="button"
                 onClick={googleLogin}
-                className=" cursor-pointer flex w-full items-center justify-center gap-2.5 rounded-lg border border-slate-300 bg-white px-3 py-2.5 text-sm font-medium text-slate-800 transition hover:bg-slate-50"
+                className="cursor-pointer flex w-full items-center justify-center gap-2.5 rounded-lg border border-slate-300 bg-white px-3 py-2.5 text-base font-medium text-slate-800 transition hover:bg-slate-50"
               >
                 <FaGoogle className="text-red-500 text-sm" />
                 Google Account
               </button>
 
-              <div className={theme === "dark" ? "mt-6 flex items-start gap-2.5 rounded-lg border border-slate-800 bg-slate-950 px-3 py-2.5 text-xs text-slate-300" : "mt-6 flex items-start gap-2.5 rounded-lg border border-slate-200 bg-slate-50 px-3 py-2.5 text-xs text-slate-600"}>
+              <div className={theme === "dark" ? "mt-6 flex items-start gap-2.5 rounded-lg border border-slate-800 bg-slate-950 px-3 py-2.5 text-sm text-slate-300" : "mt-6 flex items-start gap-2.5 rounded-lg border border-slate-200 bg-slate-50 px-3 py-2.5 text-sm text-slate-600"}>
                 <FaShieldAlt className="mt-0.5 shrink-0 text-orange-700 text-sm" />
                 <p>
                   We only use your details for account access and secure room browsing.

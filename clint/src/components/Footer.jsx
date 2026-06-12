@@ -14,16 +14,16 @@ function Footer() {
   ]
 
   return (
-    <footer className={isDark ? "border-t border-slate-800 bg-slate-950 px-4 py-16" : "border-t border-slate-200 bg-white px-4 py-16"}>
-      <div className="mx-auto grid max-w-7xl grid-cols-1 gap-12 md:grid-cols-5">
+    <footer className={isDark ? "border-t border-slate-800 bg-slate-950 px-4 py-14 sm:py-16" : "border-t border-slate-200 bg-white px-4 py-14 sm:py-16"}>
+      <div className="mx-auto grid max-w-7xl grid-cols-1 gap-10 md:grid-cols-5">
         <div className="max-w-sm">
           <BrandLogo
             to="/"
             className="mb-5"
             size="sm"
-            textClassName="text-[1.05rem] text-blue-700"
+            textClassName="text-base text-blue-700"
           />
-          <p className={isDark ? "max-w-sm text-sm leading-6 text-slate-400" : "max-w-sm text-sm leading-6 text-slate-500"}>
+          <p className={isDark ? "max-w-sm text-sm leading-6 text-slate-400 sm:text-base sm:leading-7" : "max-w-sm text-sm leading-6 text-slate-500 sm:text-base sm:leading-7"}>
             Verified rooms in Birgunj for students, families, and owners.
           </p>
           <div className="mt-6 flex items-center gap-3">
@@ -49,10 +49,10 @@ function Footer() {
         </div>
 
         <div>
-          <h3 className={isDark ? "mb-4 text-sm font-semibold text-white" : "mb-4 text-sm font-semibold text-slate-900"}>
+          <h3 className={isDark ? "mb-4 text-base font-semibold text-white" : "mb-4 text-base font-semibold text-slate-900"}>
             Quick Links
           </h3>
-          <ul className={isDark ? "space-y-3 text-sm text-slate-400" : "space-y-3 text-sm text-slate-500"}>
+          <ul className={isDark ? "space-y-3 text-base text-slate-400" : "space-y-3 text-base text-slate-500"}>
             <li><Link to="/">Home</Link></li>
             <li><Link to="/rooms">All Rooms</Link></li>
             <li><Link to="/add-room">Add Room</Link></li>
@@ -62,10 +62,10 @@ function Footer() {
         </div>
 
         <div>
-          <h3 className={isDark ? "mb-4 text-sm font-semibold text-white" : "mb-4 text-sm font-semibold text-slate-900"}>
+          <h3 className={isDark ? "mb-4 text-base font-semibold text-white" : "mb-4 text-base font-semibold text-slate-900"}>
             Support
           </h3>
-          <ul className={isDark ? "space-y-3 text-sm text-slate-400" : "space-y-3 text-sm text-slate-500"}>
+          <ul className={isDark ? "space-y-3 text-base text-slate-400" : "space-y-3 text-base text-slate-500"}>
             <li><a href="mailto:roomsathi@gmail.com">Help Center</a></li>
             <li><a href="https://wa.me/+9779806840014" target="_blank" rel="noreferrer">Contact on WhatsApp</a></li>
             <li>Privacy Policy</li>
@@ -74,10 +74,10 @@ function Footer() {
         </div>
 
         <div>
-          <h3 className={isDark ? "mb-4 text-sm font-semibold text-white" : "mb-4 text-sm font-semibold text-slate-900"}>
+          <h3 className={isDark ? "mb-4 text-base font-semibold text-white" : "mb-4 text-base font-semibold text-slate-900"}>
             Reach Us
           </h3>
-          <ul className={isDark ? "space-y-3 text-sm text-slate-400" : "space-y-3 text-sm text-slate-500"}>
+          <ul className={isDark ? "space-y-3 text-base text-slate-400" : "space-y-3 text-base text-slate-500"}>
             <li className="flex items-center gap-2"><MapPin size={16} /> Birgunj, Nepal</li>
             <li className="flex items-center gap-2"><Phone size={16} /> +977 9806840014</li>
             <li className="flex items-center gap-2"><Mail size={16} /> roomsathi@gmail.com</li>
@@ -85,10 +85,10 @@ function Footer() {
         </div>
 
         <div>
-          <h3 className={isDark ? "mb-4 text-sm font-semibold text-white" : "mb-4 text-sm font-semibold text-slate-900"}>
+          <h3 className={isDark ? "mb-4 text-base font-semibold text-white" : "mb-4 text-base font-semibold text-slate-900"}>
             Feedback
           </h3>
-          <p className={isDark ? "mb-4 text-sm leading-6 text-slate-400" : "mb-4 text-sm leading-6 text-slate-500"}>
+          <p className={isDark ? "mb-4 text-base leading-7 text-slate-400" : "mb-4 text-base leading-7 text-slate-500"}>
             Tell us what should improve next. Real feedback helps RoomSathi grow.
           </p>
           <Link
@@ -100,8 +100,8 @@ function Footer() {
         </div>
       </div>
 
-      <div className={isDark ? "mt-12 border-t border-slate-800 pt-6 text-center text-xs text-slate-500" : "mt-12 border-t border-slate-200 pt-6 text-center text-xs text-slate-400"}>
-        © 2026 RoomSathi Nepal. All rights reserved.
+      <div className={isDark ? "mt-10 border-t border-slate-800 pt-6 text-center text-sm text-slate-500" : "mt-10 border-t border-slate-200 pt-6 text-center text-sm text-slate-400"}>
+        (c) 2026 RoomSathi Nepal. All rights reserved.
       </div>
     </footer>
   )

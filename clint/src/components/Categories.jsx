@@ -25,13 +25,13 @@ function Categories() {
   const { theme } = useTheme()
 
   return (
-    <section className={theme === "dark" ? "bg-slate-950 px-4 py-16 md:py-20" : "bg-white px-4 py-16 md:py-20"}>
+    <section className={theme === "dark" ? "bg-slate-950 px-4 py-14 md:py-20" : "bg-white px-4 py-14 md:py-20"}>
       <div className="mx-auto max-w-7xl">
-        <div className="mb-8 flex items-center justify-between">
+        <div className="mb-8 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
           <h2 className={theme === "dark" ? "text-2xl font-semibold tracking-tight text-white md:text-3xl" : "text-2xl font-semibold tracking-tight text-slate-900 md:text-3xl"}>
             Explore Categories
           </h2>
-          <button className="text-sm font-semibold text-blue-700">
+          <button className="self-start text-sm font-semibold text-blue-700 sm:self-auto">
             View All -&gt;
           </button>
         </div>
@@ -39,7 +39,7 @@ function Categories() {
           {categories.map((item, index) => (
             <div
               key={index}
-              className="group relative h-52 cursor-pointer overflow-hidden rounded-2xl bg-slate-900 shadow-md md:h-60"
+              className="group relative h-52 cursor-pointer overflow-hidden rounded-2xl bg-slate-900 shadow-md sm:h-56 md:h-60"
             >
               <img
                 src={item.image}
@@ -48,7 +48,7 @@ function Categories() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
               <div className="absolute bottom-4 left-4 text-white">
-                <h3 className="text-lg font-semibold">{item.title}</h3>
+                <h3 className="text-base font-semibold sm:text-lg">{item.title}</h3>
                 <p className="text-xs text-white/80">{item.listings}</p>
               </div>
             </div>

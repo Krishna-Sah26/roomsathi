@@ -28,7 +28,7 @@ function Neighborhoods() {
   const { theme } = useTheme()
 
   return (
-    <section className={theme === "dark" ? "bg-slate-950 px-4 py-16 md:py-20" : "bg-white px-4 py-16 md:py-20"}>
+    <section className={theme === "dark" ? "bg-slate-950 px-4 py-14 md:py-20" : "bg-white px-4 py-14 md:py-20"}>
       <div className="mx-auto max-w-7xl">
         <h2 className={theme === "dark" ? "text-center text-2xl font-semibold tracking-tight text-white md:text-3xl" : "text-center text-2xl font-semibold tracking-tight text-slate-900 md:text-3xl"}>
           Popular Neighborhoods
@@ -38,7 +38,7 @@ function Neighborhoods() {
           {neighborhoods.map((neighborhood, index) => (
             <article
               key={neighborhood.title}
-              className={`relative overflow-hidden rounded-2xl ${index === 0 ? "md:row-span-2 min-h-[380px]" : "min-h-[180px]"} ${neighborhood.span}`}
+              className={`relative overflow-hidden rounded-2xl ${index === 0 ? "min-h-[260px] sm:min-h-[320px] md:row-span-2 md:min-h-[380px]" : "min-h-[180px]"} ${neighborhood.span}`}
             >
               <img
                 src={neighborhood.image}
@@ -47,7 +47,7 @@ function Neighborhoods() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
               <div className="absolute bottom-4 left-4 text-white">
-                <h3 className="text-lg font-semibold">{neighborhood.title}</h3>
+                <h3 className="text-base font-semibold sm:text-lg">{neighborhood.title}</h3>
                 <p className="text-xs text-white/80">{neighborhood.subtitle}</p>
               </div>
             </article>

@@ -124,13 +124,13 @@ function Login() {
     <div className={theme === "dark" ? "min-h-screen bg-slate-950 text-slate-100" : "min-h-screen bg-[#f5f5ff] text-slate-900"}>
       {/* Page header */}
       <header className={theme === "dark" ? "border-b border-slate-800 bg-slate-950/90 backdrop-blur" : "border-b border-slate-200 bg-white/90 backdrop-blur"}>
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 md:px-6">
+        <div className="mx-auto flex max-w-7xl flex-col gap-3 px-4 py-3 sm:flex-row sm:items-center sm:justify-between md:px-6">
           <BrandLogo
             to="/"
             size="lg"
-            textClassName={theme === "dark" ? "text-xl text-white" : "text-xl text-blue-700"}
+            textClassName={theme === "dark" ? "text-lg text-white sm:text-xl" : "text-lg text-blue-700 sm:text-xl"}
           />
-          <div className="flex items-center gap-3">
+          <div className="flex flex-wrap items-center gap-3">
             <ThemeToggle />
             <span className="hidden text-sm font-medium text-slate-600 md:block">
               Local Guide
@@ -178,9 +178,9 @@ function Login() {
             </section>
 
             {/* Right auth form */}
-            <section className={theme === "dark" ? "bg-slate-900 p-5 md:p-8 lg:p-10" : "bg-white p-5 md:p-8 lg:p-10"}>
+            <section className={theme === "dark" ? "bg-slate-900 p-4 sm:p-5 md:p-8 lg:p-10" : "bg-white p-4 sm:p-5 md:p-8 lg:p-10"}>
               {/* Auth tabs */}
-              <div className={theme === "dark" ? "mb-6 flex items-center gap-8 border-b border-slate-800 text-lg font-semibold" : "mb-6 flex items-center gap-8 border-b border-slate-200 text-lg font-semibold"}>
+              <div className={theme === "dark" ? "mb-6 flex items-center gap-6 border-b border-slate-800 text-base font-semibold sm:text-lg" : "mb-6 flex items-center gap-6 border-b border-slate-200 text-base font-semibold sm:text-lg"}>
                 <Link to={`/login${location.search}`} className="border-b-3 border-blue-700 pb-3 text-blue-700">
                   Login
                 </Link>
@@ -189,33 +189,33 @@ function Login() {
                 </Link>
               </div>
 
-              <h2 className={theme === "dark" ? "text-2xl font-bold tracking-tight text-white" : "text-2xl font-bold tracking-tight"}>
+              <h2 className={theme === "dark" ? "text-2xl font-bold tracking-tight text-white sm:text-3xl" : "text-2xl font-bold tracking-tight sm:text-3xl"}>
                 Welcome Back
               </h2>
-              <p className={theme === "dark" ? "mt-2 text-sm text-slate-400" : "mt-2 text-sm text-slate-500"}>
+              <p className={theme === "dark" ? "mt-2 text-sm leading-6 text-slate-400" : "mt-2 text-sm leading-6 text-slate-500"}>
                 Access your verified listings and saved favorites.
               </p>
 
               {routeMessage ? (
-                <div className={theme === "dark" ? "mt-4 rounded-lg border border-slate-800 bg-slate-950 px-3 py-2 text-xs text-slate-300" : "mt-4 rounded-lg border border-blue-100 bg-blue-50 px-3 py-2 text-xs text-slate-700"}>
+                <div className={theme === "dark" ? "mt-4 rounded-lg border border-slate-800 bg-slate-950 px-3 py-2 text-sm text-slate-300" : "mt-4 rounded-lg border border-blue-100 bg-blue-50 px-3 py-2 text-sm text-slate-700"}>
                   {routeMessage}
                 </div>
               ) : null}
 
               {/* Validation note */}
-              <div className={theme === "dark" ? "mt-4 rounded-lg border border-slate-800 bg-slate-950 px-3 py-2 text-xs text-slate-300" : "mt-4 rounded-lg border border-blue-100 bg-blue-50 px-3 py-2 text-xs text-slate-600"}>
+              <div className={theme === "dark" ? "mt-4 rounded-lg border border-slate-800 bg-slate-950 px-3 py-2 text-sm text-slate-300" : "mt-4 rounded-lg border border-blue-100 bg-blue-50 px-3 py-2 text-sm text-slate-600"}>
                 Login only works with a valid <span className="font-semibold">@gmail.com</span> account.
               </div>
 
               {formError ? (
-                <div className="mt-3 rounded-lg border border-red-200 bg-red-50 px-3 py-2 text-xs font-medium text-red-700">
+                <div className="mt-3 rounded-lg border border-red-200 bg-red-50 px-3 py-2 text-sm font-medium text-red-700">
                   {formError}
                 </div>
               ) : null}
 
                             {/* Email field */}
               <div className="mt-6">
-                <label className={theme === "dark" ? "mb-1.5 block text-xs font-semibold tracking-wide text-slate-200" : "mb-1.5 block text-xs font-semibold tracking-wide text-slate-800"}>
+                <label className={theme === "dark" ? "mb-1.5 block text-sm font-semibold tracking-wide text-slate-200" : "mb-1.5 block text-sm font-semibold tracking-wide text-slate-800"}>
                   Email Address
                 </label>
                 <div className={theme === "dark" ? "flex items-center rounded-lg border border-slate-700 bg-slate-950 px-3 py-2.5 shadow-sm" : "flex items-center rounded-lg border border-slate-300 bg-[#f7f7ff] px-3 py-2.5 shadow-sm"}>
@@ -225,14 +225,14 @@ function Login() {
                     placeholder="name@gmail.com"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    className={theme === "dark" ? "w-full bg-transparent text-sm text-slate-100 outline-none placeholder:text-slate-500" : "w-full bg-transparent text-sm outline-none placeholder:text-slate-400"}
+                    className={theme === "dark" ? "w-full bg-transparent text-base text-slate-100 outline-none placeholder:text-slate-500" : "w-full bg-transparent text-base outline-none placeholder:text-slate-400"}
                   />
                 </div>
               </div>
 
               {/* Password field */}
               <div className="mt-4">
-                <label className={theme === "dark" ? "mb-1.5 block text-xs font-semibold tracking-wide text-slate-200" : "mb-1.5 block text-xs font-semibold tracking-wide text-slate-800"}>
+                <label className={theme === "dark" ? "mb-1.5 block text-sm font-semibold tracking-wide text-slate-200" : "mb-1.5 block text-sm font-semibold tracking-wide text-slate-800"}>
                   Password
                 </label>
                 <div className={theme === "dark" ? "flex items-center rounded-lg border border-slate-700 bg-slate-950 px-3 py-2.5 shadow-sm" : "flex items-center rounded-lg border border-slate-300 bg-[#f7f7ff] px-3 py-2.5 shadow-sm"}>
@@ -242,7 +242,7 @@ function Login() {
                     placeholder="••••••••"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
-                    className={theme === "dark" ? "w-full bg-transparent text-sm text-slate-100 outline-none placeholder:text-slate-500" : "w-full bg-transparent text-sm outline-none placeholder:text-slate-400"}
+                    className={theme === "dark" ? "w-full bg-transparent text-base text-slate-100 outline-none placeholder:text-slate-500" : "w-full bg-transparent text-base outline-none placeholder:text-slate-400"}
                   />
                   <button
                     type="button"
@@ -257,13 +257,13 @@ function Login() {
 
               {/* Role selector */}
               <div className="mt-4">
-                <label className={theme === "dark" ? "mb-1.5 block text-xs font-semibold tracking-wide text-slate-200" : "mb-1.5 block text-xs font-semibold tracking-wide text-slate-800"}>
+                <label className={theme === "dark" ? "mb-1.5 block text-sm font-semibold tracking-wide text-slate-200" : "mb-1.5 block text-sm font-semibold tracking-wide text-slate-800"}>
                   Login as
                 </label>
                 <select
                   value={role}
                   onChange={(e) => setRole(e.target.value)}
-                  className=" cursor-pointer w-full rounded-lg border border-slate-300 bg-[#f7f7ff] px-3 py-2.5 text-sm outline-none"
+                  className="cursor-pointer w-full rounded-lg border border-slate-300 bg-[#f7f7ff] px-3 py-2.5 text-base outline-none"
                 >
                   <option value="user">Seeker</option>
                   <option value="owner">Owner</option>
@@ -273,7 +273,7 @@ function Login() {
               {/* Real login button */}
               <button
                 onClick={handleLogin}
-                className= " cursor-pointer mt-6 w-full rounded-lg bg-blue-700 py-3 text-sm font-semibold text-white shadow-lg shadow-blue-700/20 transition hover:bg-blue-800 disabled:cursor-not-allowed disabled:opacity-70"
+                className="cursor-pointer mt-6 w-full rounded-lg bg-blue-700 py-3 text-base font-semibold text-white shadow-lg shadow-blue-700/20 transition hover:bg-blue-800 disabled:cursor-not-allowed disabled:opacity-70"
                 disabled={loading}
               >
                 {loading ? "Signing In..." : "Sign In"}
@@ -281,7 +281,7 @@ function Login() {
 
               <div className="my-6 flex items-center gap-3">
                 <div className={theme === "dark" ? "h-px flex-1 bg-slate-800" : "h-px flex-1 bg-slate-200"} />
-                <span className={theme === "dark" ? "text-xs font-semibold tracking-[0.24em] text-slate-500" : "text-xs font-semibold tracking-[0.24em] text-slate-400"}>
+                <span className={theme === "dark" ? "text-xs font-semibold tracking-[0.24em] text-slate-500 sm:text-xs" : "text-xs font-semibold tracking-[0.24em] text-slate-400 sm:text-xs"}>
                   OR CONTINUE WITH
                 </span>
                 <div className={theme === "dark" ? "h-px flex-1 bg-slate-800" : "h-px flex-1 bg-slate-200"} />
@@ -290,13 +290,13 @@ function Login() {
               <button
                 type="button"
                 onClick={googleLogin}
-                className=" cursor-pointer flex w-full items-center justify-center gap-2.5 rounded-lg border border-slate-300 bg-white px-3 py-2.5 text-sm font-medium text-slate-800 transition hover:bg-slate-50"
+                className="cursor-pointer flex w-full items-center justify-center gap-2.5 rounded-lg border border-slate-300 bg-white px-3 py-2.5 text-base font-medium text-slate-800 transition hover:bg-slate-50"
               >
                 <FaGoogle className="text-red-500 text-sm" />
                 Google Account
               </button>
 
-              <div className={theme === "dark" ? "mt-6 flex items-start gap-2.5 rounded-lg border border-slate-800 bg-slate-950 px-3 py-2.5 text-xs text-slate-300" : "mt-6 flex items-start gap-2.5 rounded-lg border border-slate-200 bg-slate-50 px-3 py-2.5 text-xs text-slate-600"}>
+              <div className={theme === "dark" ? "mt-6 flex items-start gap-2.5 rounded-lg border border-slate-800 bg-slate-950 px-3 py-2.5 text-sm text-slate-300" : "mt-6 flex items-start gap-2.5 rounded-lg border border-slate-200 bg-slate-50 px-3 py-2.5 text-sm text-slate-600"}>
                 <FaShieldAlt className="mt-0.5 shrink-0 text-orange-700 text-sm" />
                 <p>
                   Your data is secured with banking-grade encryption and stored locally in Nepal.

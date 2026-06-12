@@ -12,27 +12,27 @@ function Navbar() {
   }
 
   return (
-    <nav className={theme === "dark" ? "fixed left-0 top-0 z-50 w-full border-b border-slate-800 bg-slate-950/90 px-4 py-3 text-slate-100 backdrop-blur md:px-6" : "fixed left-0 top-0 z-50 w-full border-b border-slate-200/80 bg-white/90 px-4 py-3 text-slate-900 backdrop-blur md:px-6"}>
-      <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-3">
+    <nav className={theme === "dark" ? "fixed left-0 top-0 z-50 w-full border-b border-slate-800 bg-slate-950/90 px-3 py-3 text-slate-100 backdrop-blur sm:px-4 md:px-6" : "fixed left-0 top-0 z-50 w-full border-b border-slate-200/80 bg-white/90 px-3 py-3 text-slate-900 backdrop-blur sm:px-4 md:px-6"}>
+      <div className="mx-auto flex max-w-7xl flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center sm:justify-between">
         <BrandLogo
           to="/"
           size="lg"
-          textClassName={theme === "dark" ? "text-xl text-white md:text-[1.35rem]" : "text-xl text-blue-700 md:text-[1.35rem]"}
+          textClassName={theme === "dark" ? "text-lg text-white sm:text-xl md:text-[1.35rem]" : "text-lg text-blue-700 sm:text-xl md:text-[1.35rem]"}
         />
 
-        <div className="flex flex-wrap items-center justify-end gap-2">
+        <div className="flex flex-wrap items-center gap-2 sm:justify-end">
           <ThemeToggle />
           <button
             type="button"
             onClick={() => goToLogin("owner")}
-            className="rounded-full bg-blue-700 px-3 py-2 text-xs font-semibold text-white shadow-sm transition hover:bg-blue-800 sm:px-4 sm:text-sm"
+            className="rounded-full bg-blue-700 px-3 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-blue-800 sm:px-4"
           >
             I&apos;m an Owner
           </button>
           <button
             type="button"
             onClick={() => goToLogin("user")}
-            className="rounded-full bg-blue-700 px-3 py-2 text-xs font-semibold text-white shadow-sm transition hover:bg-blue-800 sm:px-4 sm:text-sm"
+            className="rounded-full bg-blue-700 px-3 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-blue-800 sm:px-4"
           >
             I&apos;m a Seeker
           </button>

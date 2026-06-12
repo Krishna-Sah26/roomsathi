@@ -107,30 +107,30 @@ function RoomCard({ room, saved, onSaveToggle, onDelete }) {
           <img
             src={roomImage}
             alt={room.title}
-            className="h-56 w-full object-cover"
+            className="h-48 w-full object-cover sm:h-56"
           />
         ) : (
-          <div className={theme === "dark" ? "flex h-56 w-full items-center justify-center bg-gradient-to-br from-slate-800 to-slate-900 text-sm font-medium text-slate-400" : "flex h-56 w-full items-center justify-center bg-gradient-to-br from-slate-100 to-slate-200 text-sm font-medium text-slate-500"}>
+          <div className={theme === "dark" ? "flex h-48 w-full items-center justify-center bg-gradient-to-br from-slate-800 to-slate-900 text-sm font-medium text-slate-400 sm:h-56" : "flex h-48 w-full items-center justify-center bg-gradient-to-br from-slate-100 to-slate-200 text-sm font-medium text-slate-500 sm:h-56"}>
             No uploaded image
           </div>
         )}
       </button>
 
-      <div className="p-5">
-        <div className="flex items-start justify-between gap-4">
+      <div className="p-4 sm:p-5">
+        <div className="flex items-start justify-between gap-3">
           <button
             type="button"
             onClick={openRoomDetails}
-          className={theme === "dark" ? "text-left text-base font-semibold text-white transition hover:text-blue-300" : "text-left text-base font-semibold text-slate-900 transition hover:text-blue-700"}
+          className={theme === "dark" ? "text-left text-base font-semibold leading-6 text-white transition hover:text-blue-300" : "text-left text-base font-semibold leading-6 text-slate-900 transition hover:text-blue-700"}
           >
             {room.title}
           </button>
-          <span className="shrink-0 text-sm font-semibold text-blue-700">
+          <span className="shrink-0 text-sm font-semibold text-blue-700 sm:text-base">
             Rs. {room.price}
           </span>
         </div>
 
-        <p className={theme === "dark" ? "mt-2 text-sm text-slate-400" : "mt-2 text-sm text-slate-500"}>
+        <p className={theme === "dark" ? "mt-2 text-sm leading-6 text-slate-400" : "mt-2 text-sm leading-6 text-slate-500"}>
           {room.location}
         </p>
 
