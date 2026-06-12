@@ -145,7 +145,7 @@ function Register() {
               className="relative hidden min-h-[450px] overflow-hidden bg-cover bg-center lg:flex"
               style={{
                 backgroundImage:
-                  "url('https://i1-e.pinimg.com/736x/27/db/a1/27dba12f1dc534cb8f3e0de2ca2e7f27.jpg')",
+                  "url('https://images.unsplash.com/photo-1494526585095-c41746248156?q=80&w=1600&auto=format&fit=crop')",
               }}
             >
               <div className="absolute inset-0 bg-gradient-to-t from-blue-800/12 via-transparent to-transparent" />

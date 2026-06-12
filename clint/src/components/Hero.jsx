@@ -6,7 +6,7 @@ function Hero({ search, onSearch }) {
       className="relative flex min-h-[600px] items-center justify-center overflow-hidden bg-slate-950 bg-cover bg-center bg-no-repeat px-4 pt-28 sm:pt-24 md:min-h-[720px]"
       style={{
         backgroundImage:
-          "url('https://i.pinimg.com/736x/22/4b/c6/224bc671653d2f01dc2b0ea352b05cb6.jpg')",
+          "url('https://images.unsplash.com/photo-1560185007-c5ca9d2c014d?q=80&w=1600&auto=format&fit=crop')",
         backgroundPosition: "center center",
       }}
     >
