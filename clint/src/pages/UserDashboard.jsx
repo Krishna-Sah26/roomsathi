@@ -124,6 +124,16 @@ function UserDashboard() {
 
   const displayName = profile?.name || userInfo?.name || "Seeker"
 
+  const handleRoomDeleted = (roomId) => {
+    setSavedRooms((currentRooms) => currentRooms.filter((room) => room._id !== roomId))
+    setRecommendedRooms((currentRooms) =>
+      currentRooms.filter((room) => room._id !== roomId)
+    )
+    setContacts((currentContacts) =>
+      currentContacts.filter((lead) => lead.room?._id !== roomId && lead.room !== roomId)
+    )
+  }
+
   return (
     <div className={theme === "dark" ? "min-h-screen bg-slate-950 text-slate-100" : "min-h-screen bg-[#f5f5ff] text-slate-900"}>
       <header className={theme === "dark" ? "border-b border-slate-800 bg-slate-950/90 backdrop-blur" : "border-b border-slate-200 bg-white/90 backdrop-blur"}>
@@ -243,7 +253,7 @@ function UserDashboard() {
               ) : savedRooms.length > 0 ? (
                 <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
                   {savedRooms.map((room) => (
-                    <RoomCard key={room._id} room={room} />
+                    <RoomCard key={room._id} room={room} onDelete={handleRoomDeleted} />
                   ))}
                 </div>
               ) : (
@@ -262,7 +272,11 @@ function UserDashboard() {
                 {recommendedRooms.length > 0 ? (
                   <div className="mt-6 grid grid-cols-1 gap-5 md:grid-cols-2">
                     {recommendedRooms.map((room) => (
-                      <RoomCard key={`rec-${room._id}`} room={room} />
+                      <RoomCard
+                        key={`rec-${room._id}`}
+                        room={room}
+                        onDelete={handleRoomDeleted}
+                      />
                     ))}
                   </div>
                 ) : (

@@ -9,6 +9,10 @@ function FeaturedRooms({ search }) {
   const [loading, setLoading] = useState(true)
   const { theme } = useTheme()
 
+  const handleRoomDeleted = (roomId) => {
+    setRooms((currentRooms) => currentRooms.filter((room) => room._id !== roomId))
+  }
+
   useEffect(() => {
     // Load rooms from the backend without blocking render.
     API.get("/rooms")
@@ -57,7 +61,9 @@ function FeaturedRooms({ search }) {
               Loading rooms...
             </div>
           ) : filteredRooms.length > 0 ? (
-            filteredRooms.map((room) => <RoomCard key={room._id} room={room} />)
+            filteredRooms.map((room) => (
+              <RoomCard key={room._id} room={room} onDelete={handleRoomDeleted} />
+            ))
           ) : (
             <div className={theme === "dark" ? "rounded-2xl bg-slate-900 p-6 text-slate-400 ring-1 ring-slate-800 md:col-span-3" : "rounded-2xl bg-white p-6 text-slate-500 ring-1 ring-slate-200 md:col-span-3"}>
               No live room listings yet. Owner-added rooms will appear here after they publish.

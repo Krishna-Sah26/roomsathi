@@ -1,5 +1,6 @@
 const Room = require("../models/Room")
 const Lead = require("../models/Lead")
+const User = require("../models/User")
 const cloudinary = require("../config/cloudinary")
 const getDistance = require("../utils/distance")
 
@@ -252,6 +253,14 @@ const deleteRoom = async (req, res) => {
         message: "Not authorized",
       })
     }
+
+    await Promise.all([
+      Lead.deleteMany({ room: room._id }),
+      User.updateMany(
+        { savedRooms: room._id },
+        { $pull: { savedRooms: room._id } }
+      ),
+    ])
 
     await room.deleteOne()
 

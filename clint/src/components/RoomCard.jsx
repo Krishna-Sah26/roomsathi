@@ -3,22 +3,31 @@ import { useNavigate } from "react-router-dom"
 import API from "../services/api"
 import { useTheme } from "../hooks/useTheme"
 
-function RoomCard({ room, saved, onSaveToggle }) {
+function RoomCard({ room, saved, onSaveToggle, onDelete }) {
   const navigate = useNavigate()
   const roomImage = room.images?.[0]
   const [loading, setLoading] = useState(false)
+  const [activeAction, setActiveAction] = useState(null)
   const { theme } = useTheme()
+  const userInfo = JSON.parse(localStorage.getItem("userInfo") || "null")
+  const currentUserId = userInfo?._id || userInfo?.id
+  const ownerId = room.owner?._id || room.owner?.id || room.owner
+  const canDeleteRoom =
+    userInfo?.token &&
+    userInfo?.role === "owner" &&
+    currentUserId &&
+    ownerId &&
+    ownerId.toString() === currentUserId.toString()
 
   const handleSaveToggle = async () => {
     try {
-      const userInfo = JSON.parse(localStorage.getItem("userInfo") || "null")
-
       if (!userInfo?.token) {
         alert("Please login to save rooms")
         return
       }
 
       setLoading(true)
+      setActiveAction("save")
 
       if (saved) {
         await API.delete(`/users/save/${room._id}`, {
@@ -43,12 +52,37 @@ function RoomCard({ room, saved, onSaveToggle }) {
       alert(error?.response?.data?.message || "Unable to update saved status")
     } finally {
       setLoading(false)
+      setActiveAction(null)
+    }
+  }
+
+  const handleDeleteRoom = async (event) => {
+    event?.preventDefault()
+    event?.stopPropagation()
+
+    if (!canDeleteRoom) {
+      return
+    }
+
+    const confirmed = window.confirm("Delete this room listing permanently?")
+    if (!confirmed) {
+      return
+    }
+
+    try {
+      setLoading(true)
+      setActiveAction("delete")
+      await API.delete(`/rooms/${room._id}`)
+      onDelete?.(room._id)
+    } catch (error) {
+      alert(error?.response?.data?.message || "Unable to delete room")
+    } finally {
+      setLoading(false)
+      setActiveAction(null)
     }
   }
 
   const openRoomDetails = () => {
-    const userInfo = JSON.parse(localStorage.getItem("userInfo") || "null")
-
     if (!userInfo?.token) {
       navigate("/login", {
         state: {
@@ -114,8 +148,19 @@ function RoomCard({ room, saved, onSaveToggle }) {
             ? "mt-4 w-full rounded-xl border border-slate-200 bg-slate-100 px-4 py-3 text-sm font-semibold text-slate-700 transition hover:bg-slate-200 disabled:cursor-not-allowed disabled:opacity-60"
             : "mt-4 w-full rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm font-semibold text-red-700 transition hover:bg-red-100 disabled:cursor-not-allowed disabled:opacity-60"}
         >
-          {loading ? "Updating..." : saved ? "Saved" : "Save Room"}
+          {loading && activeAction === "save" ? "Updating..." : saved ? "Saved" : "Save Room"}
         </button>
+
+        {canDeleteRoom ? (
+          <button
+            type="button"
+            onClick={handleDeleteRoom}
+            disabled={loading}
+            className="mt-3 w-full rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm font-semibold text-red-700 transition hover:bg-red-100 disabled:cursor-not-allowed disabled:opacity-60"
+          >
+            {loading && activeAction === "delete" ? "Deleting..." : "Delete Room"}
+          </button>
+        ) : null}
 
         <button
           type="button"

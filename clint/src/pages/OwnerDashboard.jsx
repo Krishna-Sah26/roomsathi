@@ -140,10 +140,16 @@ function OwnerDashboard() {
 
   const handleDeleteRoom = async (roomId) => {
     try {
+      const confirmed = window.confirm("Delete this room listing permanently?")
+      if (!confirmed) {
+        return
+      }
+
       await API.delete(`/rooms/${roomId}`, { headers: authHeaders })
-      setRooms((currentRooms) => currentRooms.filter((room) => room._id !== roomId))
+      await loadDashboardData()
+      alert("Room deleted successfully")
     } catch (error) {
-      console.log(error)
+      alert(error?.response?.data?.message || "Unable to delete room")
     }
   }
 

@@ -314,6 +314,10 @@ function Rooms() {
 
   const filteredCount = rooms.length
 
+  const handleRoomDeleted = (roomId) => {
+    setRooms((currentRooms) => currentRooms.filter((room) => room._id !== roomId))
+  }
+
   return (
     <div className={theme === "dark" ? "min-h-screen pt-16 bg-slate-950 text-slate-100" : "min-h-screen pt-16 bg-slate-100 text-slate-900"}>
       <Navbar />
@@ -517,7 +521,9 @@ function Rooms() {
                 Loading rooms...
               </div>
             ) : rooms.length > 0 ? (
-              rooms.map((room) => <RoomCard key={room._id} room={room} />)
+              rooms.map((room) => (
+                <RoomCard key={room._id} room={room} onDelete={handleRoomDeleted} />
+              ))
             ) : (
               <div className={theme === "dark" ? "rounded-[24px] bg-slate-900 p-8 text-slate-400 ring-1 ring-slate-800 sm:col-span-2 xl:col-span-3" : "rounded-[24px] bg-white p-8 text-slate-500 ring-1 ring-slate-200 sm:col-span-2 xl:col-span-3"}>
                 No rooms found for this filter.
