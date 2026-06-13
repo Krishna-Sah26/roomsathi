@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom"
 import API from "../services/api"
 import { useTheme } from "../hooks/useTheme"
 
-function RoomCard({ room, saved, onSaveToggle, onDelete }) {
+function RoomCard({ room, saved, onSaveToggle, onDelete, showDelete = false }) {
   const navigate = useNavigate()
   const roomImage = room.images?.[0]
   const [loading, setLoading] = useState(false)
@@ -13,6 +13,7 @@ function RoomCard({ room, saved, onSaveToggle, onDelete }) {
   const currentUserId = userInfo?._id || userInfo?.id
   const ownerId = room.owner?._id || room.owner?.id || room.owner
   const canDeleteRoom =
+    showDelete &&
     userInfo?.token &&
     userInfo?.role === "owner" &&
     currentUserId &&
