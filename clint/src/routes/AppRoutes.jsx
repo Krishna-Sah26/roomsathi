@@ -11,6 +11,8 @@ import EditRoom from "../pages/EditRoom"
 import ProtectedRoute from "../components/ProtectedRoute"
 import About from "../pages/About"
 import Contact from "../pages/Contact"
+import PrivacyPolicy from "../pages/PrivacyPolicy"
+import Terms from "../pages/Terms"
 import Feedback from "../pages/Feedback"
 
 function AppRoutes() {
@@ -60,6 +62,8 @@ function AppRoutes() {
         <Route path="/rooms" element={<Rooms />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+        <Route path="/terms" element={<Terms />} />
         <Route path="/feedback" element={<Feedback />} />
         <Route
           path="/room-details/:id"

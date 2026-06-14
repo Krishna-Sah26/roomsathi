@@ -66,10 +66,12 @@ function Footer() {
             Support
           </h3>
           <ul className={isDark ? "space-y-3 text-base text-slate-400" : "space-y-3 text-base text-slate-500"}>
-            <li><a href="mailto:roomsathi@gmail.com">Help Center</a></li>
+            <li><a href="mailto:roomsathi.contact@gmail.com">Help Center</a></li>
             <li><a href="https://wa.me/+9779806840014" target="_blank" rel="noreferrer">Contact on WhatsApp</a></li>
-            <li>Privacy Policy</li>
-            <li>Terms &amp; Conditions</li>
+            <li><Link to="/privacy-policy">Privacy Policy</Link></li>
+            <li><Link to="/terms">Terms &amp; Conditions</Link></li>
+            <li><Link to="/contact">Contact Us</Link></li>
+            <li><Link to="/contact">Contact Page</Link></li>
           </ul>
         </div>
 
@@ -80,7 +82,7 @@ function Footer() {
           <ul className={isDark ? "space-y-3 text-base text-slate-400" : "space-y-3 text-base text-slate-500"}>
             <li className="flex items-center gap-2"><MapPin size={16} /> Birgunj, Nepal</li>
             <li className="flex items-center gap-2"><Phone size={16} /> +977 9806840014</li>
-            <li className="flex items-center gap-2"><Mail size={16} /> roomsathi@gmail.com</li>
+            <li className="flex items-center gap-2"><Mail size={16} /> roomsathi.contact@gmail.com</li>
           </ul>
         </div>
 
