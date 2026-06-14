@@ -5,21 +5,21 @@ const neighborhoods = [
     title: "Birgunj Market",
     subtitle: "The heart of commerce and convenience.",
     image:
-      "https://nagarikmirror.com/wp-content/uploads/2025/03/278289856_6062238937142182_7380655517912392123_n.jpg",
+      "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1200&auto=format&fit=crop",
     span: "md:col-span-1 md:row-span-2",
   },
   {
     title: "Adarshnagar",
     subtitle: "Premium residential community.",
     image:
-      "https://nagarikmirror.com/wp-content/uploads/2025/03/278289856_6062238937142182_7380655517912392123_n.jpg",
+      "https://images.unsplash.com/photo-1460317442991-0ec209397118?q=80&w=1200&auto=format&fit=crop",
     span: "md:col-span-1",
   },
   {
     title: "Pratima Chowk",
     subtitle: "Up-and-coming living hub.",
     image:
-      "https://nagarikmirror.com/wp-content/uploads/2025/03/278289856_6062238937142182_7380655517912392123_n.jpg",
+      "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?q=80&w=1200&auto=format&fit=crop",
     span: "md:col-span-1",
   },
 ]
@@ -43,6 +43,10 @@ function Neighborhoods() {
               <img
                 src={neighborhood.image}
                 alt={neighborhood.title}
+                onError={(event) => {
+                  event.currentTarget.src =
+                    "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?q=80&w=1200&auto=format&fit=crop"
+                }}
                 className="h-full w-full object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
