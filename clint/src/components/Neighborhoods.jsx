@@ -5,7 +5,7 @@ const neighborhoods = [
     title: "Birgunj Market",
     subtitle: "The heart of commerce and convenience.",
     image:
-      "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1200&auto=format&fit=crop",
+      "https://i.pinimg.com/736x/73/a4/3e/73a43e407e1596961348d9210c5f27df.jpg",
     span: "md:col-span-1 md:row-span-2",
   },
   {
