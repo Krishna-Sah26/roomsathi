@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
-import { ChevronDown, Home, MapPin, Wallet } from "lucide-react"
+import { Home, MapPin, Wallet } from "lucide-react"
 import { useTheme } from "../hooks/useTheme"
 
 function SearchBox({ search, onSearch }) {
@@ -63,7 +63,6 @@ function SearchBox({ search, onSearch }) {
               <option className={isDark ? "bg-slate-950 text-white" : ""} value="shared">Shared</option>
             </select>
           </div>
-          <ChevronDown className={isDark ? "text-slate-300" : "text-slate-400"} size={16} />
         </label>
 
         <label className={isDark ? "flex items-center gap-3 rounded-xl px-4 py-4 text-base text-slate-300" : "flex items-center gap-3 rounded-xl px-4 py-4 text-base text-slate-500"}>
