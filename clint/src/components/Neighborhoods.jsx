@@ -5,21 +5,21 @@ const neighborhoods = [
     title: "Birgunj Market",
     subtitle: "The heart of commerce and convenience.",
     image:
-      "https://nagarikmirror.com/19658/",
+      "https://nagarikmirror.com/wp-content/uploads/2025/03/278289856_6062238937142182_7380655517912392123_n.jpg",
     span: "md:col-span-1 md:row-span-2",
   },
   {
     title: "Adarshnagar",
     subtitle: "Premium residential community.",
     image:
-      "https://nagarikmirror.com/19658/",
+      "https://nagarikmirror.com/wp-content/uploads/2025/03/278289856_6062238937142182_7380655517912392123_n.jpg",
     span: "md:col-span-1",
   },
   {
     title: "Pratima Chowk",
     subtitle: "Up-and-coming living hub.",
     image:
-      "https://scontent.fktm10-1.fna.fbcdn.net/v/t39.30808-6/474204031_1178340493791678_8797010872277763191_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=127cfc&_nc_ohc=tjXgbxQJoA8Q7kNvwE3doOM&_nc_oc=AdoZLo6T6uGU_zRkcf7EllrCTxMMLXEOe9AQiy80Y5XZOKfCpJcFOdMi9EKNqnrpE_WzzUioEJSmHRYg3pfnR2pl&_nc_zt=23&_nc_ht=scontent.fktm10-1.fna&_nc_gid=k9sC12JWYQFfaeorUgn1OQ&_nc_ss=7b2a8&oh=00_Af6lwweiRWCyjJFEFo0WObMOr03CsIEydZTE8HIgMUX-bw&oe=6A1F2EDB",
+      "https://nagarikmirror.com/wp-content/uploads/2025/03/278289856_6062238937142182_7380655517912392123_n.jpg",
     span: "md:col-span-1",
   },
 ]
