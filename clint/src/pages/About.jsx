@@ -45,7 +45,7 @@ function About() {
           <section className={theme === "dark" ? "mt-5 rounded-2xl bg-slate-950 p-6 ring-1 ring-slate-800" : "mt-5 rounded-2xl bg-[#f7f7ff] p-6 ring-1 ring-slate-200"}>
             <p className="text-sm font-semibold uppercase tracking-[0.2em] text-blue-700">Founded in Nepal 🇳🇵</p>
             <p className={theme === "dark" ? "mt-3 text-base leading-7 text-slate-300" : "mt-3 text-base leading-7 text-slate-600"}>
-              Built with ❤️ for the people of Birgunj.
+              Built with ❤️ Team Sukrionix Technology .
             </p>
           </section>
         </div>
