@@ -9,6 +9,7 @@ import Register from "../pages/Register"
 import AddRoom from "../pages/AddRoom"
 import EditRoom from "../pages/EditRoom"
 import ProtectedRoute from "../components/ProtectedRoute"
+import ScrollToTop from "../components/ScrollToTop"
 import About from "../pages/About"
 import Contact from "../pages/Contact"
 import PrivacyPolicy from "../pages/PrivacyPolicy"
@@ -18,7 +19,7 @@ import Feedback from "../pages/Feedback"
 function AppRoutes() {
   return (
     <BrowserRouter>
-
+      <ScrollToTop />
       <Routes>
 
         <Route path="/" element={<Home />} />
