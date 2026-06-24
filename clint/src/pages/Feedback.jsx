@@ -1,6 +1,9 @@
-import { useEffect, useMemo, useState } from "react"
+import { useEffect, useState } from "react"
+import { ToastContainer, toast } from "react-toastify"
+import "react-toastify/dist/ReactToastify.css"
 import Navbar from "../components/Navbar"
 import Footer from "../components/Footer"
+import API from "../services/api"
 import { useTheme } from "../hooks/useTheme"
 
 const seedFeedback = [
@@ -29,17 +32,25 @@ function Feedback() {
   const [photo, setPhoto] = useState("")
   const [photoPreview, setPhotoPreview] = useState("")
   const [featuredIndex, setFeaturedIndex] = useState(0)
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [feedbackItems, setFeedbackItems] = useState(seedFeedback)
 
-  const storedFeedback = useMemo(() => {
-    try {
-      const saved = JSON.parse(localStorage.getItem("roomsathi-feedback") || "[]")
-      return Array.isArray(saved) ? saved : []
-    } catch {
-      return []
+  useEffect(() => {
+    const loadFeedback = async () => {
+      try {
+        const { data } = await API.get("/feedback")
+        if (Array.isArray(data) && data.length > 0) {
+          setFeedbackItems(data)
+        } else {
+          setFeedbackItems(seedFeedback)
+        }
+      } catch {
+        setFeedbackItems(seedFeedback)
+      }
     }
-  }, [])
 
-  const [feedbackItems, setFeedbackItems] = useState([...seedFeedback, ...storedFeedback])
+    loadFeedback()
+  }, [])
 
   useEffect(() => {
     if (feedbackItems.length <= 1) {
@@ -71,31 +82,45 @@ function Feedback() {
     reader.readAsDataURL(selectedFile)
   }
 
-  const submitFeedback = () => {
-    if (!name.trim() || !message.trim()) {
+  const submitFeedback = async () => {
+    if (isSubmitting) {
       return
     }
 
-    const userInfo = JSON.parse(localStorage.getItem("userInfo") || "null")
-    const fallbackImage = `https://i.pravatar.cc/150?u=${encodeURIComponent(name.trim())}`
-    const nextFeedback = {
-      name: name.trim(),
-      role: role.trim() || userInfo?.role || "Guest",
-      rating,
-      message: message.trim(),
-      image: photo || userInfo?.image || fallbackImage,
+    if (!name.trim() || !message.trim()) {
+      toast.error("Please add your name and feedback before submitting.")
+      return
     }
 
-    const updated = [nextFeedback, ...feedbackItems]
-    setFeedbackItems(updated)
-    setFeaturedIndex(0)
-    localStorage.setItem("roomsathi-feedback", JSON.stringify(updated))
-    setName("")
-    setMessage("")
-    setRole("Student")
-    setRating(5)
-    setPhoto("")
-    setPhotoPreview("")
+    setIsSubmitting(true)
+
+    try {
+      const userInfo = JSON.parse(localStorage.getItem("userInfo") || "null")
+      const fallbackImage = `https://i.pravatar.cc/150?u=${encodeURIComponent(name.trim())}`
+      const nextFeedback = {
+        name: name.trim(),
+        role: role.trim() || userInfo?.role || "Guest",
+        rating,
+        message: message.trim(),
+        image: photo || userInfo?.image || fallbackImage,
+      }
+
+      const { data } = await API.post("/feedback", nextFeedback)
+      const savedFeedback = data?.feedback || nextFeedback
+      setFeedbackItems((current) => [savedFeedback, ...current])
+      setFeaturedIndex(0)
+      setName("")
+      setMessage("")
+      setRole("Student")
+      setRating(5)
+      setPhoto("")
+      setPhotoPreview("")
+      toast.success("Thank you for your feedback!")
+    } catch (error) {
+      toast.error(error?.response?.data?.message || "Something went wrong. Please try again.")
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   return (
@@ -189,9 +214,10 @@ function Feedback() {
             <button
               type="button"
               onClick={submitFeedback}
-              className="mt-6 rounded-xl bg-blue-700 px-5 py-3 font-semibold text-white transition hover:bg-blue-800"
+              disabled={isSubmitting}
+              className="mt-6 inline-flex items-center justify-center rounded-xl bg-blue-700 px-5 py-3 font-semibold text-white transition hover:bg-blue-800 disabled:cursor-not-allowed disabled:opacity-70"
             >
-              Submit Feedback
+              {isSubmitting ? "Submitting..." : "Submit Feedback"}
             </button>
           </section>
 
@@ -262,6 +288,16 @@ function Feedback() {
           </aside>
         </div>
       </main>
+      <ToastContainer
+        position="top-right"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop
+        closeOnClick
+        pauseOnHover
+        draggable
+        theme={theme === "dark" ? "dark" : "light"}
+      />
       <Footer />
     </div>
   )

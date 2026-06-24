@@ -8,6 +8,7 @@ const roomRoutes = require("./routes/roomRoutes")
 const userRoutes = require("./routes/userRoutes")
 const ownerRoutes = require("./routes/ownerRoutes")
 const exploreRoutes = require("./routes/exploreRoutes")
+const feedbackRoutes = require("./routes/feedbackRoutes")
 
 connectDB()
 
@@ -50,6 +51,7 @@ app.use("/api/rooms", roomRoutes)
 app.use("/api/users", userRoutes)
 app.use("/api/owners", ownerRoutes)
 app.use("/api/explore", exploreRoutes)
+app.use("/api/feedback", feedbackRoutes)
 
 app.get("/", (req, res) => {
   res.send("RoomSathi API Running")
